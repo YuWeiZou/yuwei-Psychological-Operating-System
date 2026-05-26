@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玉伪/稻然的心里操作系统成果分享</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+</head>
+<body>
+    <header>
+        <h1>心理操作系统成果分享</h1>
+        <p>作者：YuWeiZou</p>
+    </header>
+
+    <section id="readme-content">
+        <p style="color: #666;">正在加载 README 说明书...</p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>📂 核心成果文件下载与阅读直连</h2>
+        <p style="font-size: 0.9em; color: #666;">（点击下方链接可直接查看或供 AI 联网抓取数据）</p>
+        <ul>
+            <li><a href="./哲学作品合集.txt" target="_blank">📄 哲学作品合集.txt</a></li>
+            <li><a href="./与1999的对话p1.txt" target="_blank">📄 与1999的对话p1.txt</a></li>
+            <li><a href="./与1999的对话p2.txt" target="_blank">📄 与1999的对话p2.txt</a></li>
+            <li><a href="./文艺作品合集.txt" target="_blank">📄 文艺作品合集.txt</a></li>
+        </ul>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // 自动抓取你仓库里的 README.md 并塞进网页里
+        fetch('./README.md')
+            .then(response => {
+                if (!response.ok) throw new Error('未找到 README.md');
+                return response.text();
+            })
+            .then(markdown => {
+                document.getElementById('readme-content').innerHTML = marked.parse(markdown);
+            })
+            .catch(err => {
+                document.getElementById('readme-content').innerHTML = "<p>暂无 README 详细说明，请参考下方文件列表。</p>";
+            });
+    </script>
+</body>
+</html>
